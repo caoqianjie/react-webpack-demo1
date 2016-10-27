@@ -11,7 +11,6 @@ get('https://hacker-news.firebaseio.com/v0/topstories.json')
         return Promise.all(stories.slice(0,30).map(itemId => get('https://hacker-news.firebaseio.com/v0/item/'+itemId+'.json')));
     })
     .then(function (items) {
-        console.log(items);
         render(<NewsList items={items}/>,$('#app')[0]);
     })
     .catch(function (err) {

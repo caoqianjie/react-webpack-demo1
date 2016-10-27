@@ -72,7 +72,6 @@
 	        return get('https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json');
 	    }));
 	}).then(function (items) {
-	    console.log(items);
 	    (0, _reactDom.render)(_react2.default.createElement(_NewsList2.default, { items: items }), (0, _jquery2.default)('#app')[0]);
 	}).catch(function (err) {
 	    console.log('err occur', err);
