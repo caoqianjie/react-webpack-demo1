@@ -1,6 +1,6 @@
 import React from 'react';
 import url from 'url';
-import '../src/css/newsItem.css';
+import '../src/css/NewsItem.css';
 import Moment from 'moment';
 import ImageGrayArrow from '../grayarrow.gif';
 class NewsItem extends React.Component {
@@ -11,7 +11,9 @@ class NewsItem extends React.Component {
         return (
             <div className="newsItem-title">
                 <a className="newsItem-titleLink" href={this.props.item.url ? this.props.item.title : 'https://news.ycombinator.com/item?id=' + this.props.item.id}>{this.props.item.title}</a>
-                <span className="newsItem-domain"><a href={'https://news.ycombinator.com/from?site=' + this.getDomain()}>({this.getDomain()})</a></span>
+                {
+                    this.props.item.url && <span className="newsItem-domain"><a href={'https://news.ycombinator.com/from?site=' + this.getDomain()}>({this.getDomain()})</a></span>
+                }
             </div>
         )
     }
@@ -34,7 +36,7 @@ class NewsItem extends React.Component {
     getRank() {
         return (
             <div className="newsItem-rank">
-                {this.props.rank}
+                {this.props.rank}.
             </div>
         );
     }
